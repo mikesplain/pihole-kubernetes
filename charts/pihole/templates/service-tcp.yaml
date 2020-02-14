@@ -16,7 +16,9 @@ spec:
   {{- if .Values.serviceTCP.loadBalancerIP }}
   loadBalancerIP: {{ .Values.serviceTCP.loadBalancerIP }}
   {{- end }}
+  {{- if .Values.serviceTCP.externalTrafficPolicy }}
   externalTrafficPolicy: {{ .Values.serviceTCP.externalTrafficPolicy }}
+  {{- end }}
   ports:
     - port: 80
       targetPort: http
