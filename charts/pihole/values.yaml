@@ -71,6 +71,7 @@ persistentVolumeClaim:
   enabled: false
   # set to true to use you own pvc
   existingClaim: false
+  existingClaimName:
   annotations: {}
 
   accessModes:

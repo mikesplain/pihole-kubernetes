@@ -28,7 +28,7 @@ spec:
       dnsConfig:
         nameservers:
         - 127.0.0.1
-        - 8.8.8.8 
+        - 8.8.8.8
       containers:
         {{- if .Values.doh.enabled }}
         - name: cloudflared
@@ -152,8 +152,13 @@ spec:
       volumes:
       - name: config
         {{- if .Values.persistentVolumeClaim.enabled }}
+        {{- if and .Values.persistentVolumeClaim.existingClaim }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistentVolumeClaim.existingClaimName }}
+        {{- else }}
         persistentVolumeClaim:
           claimName: {{ template "pihole.fullname" . }}
+        {{- end }}
         {{- else }}
         emptyDir: {}
         {{- end }}
