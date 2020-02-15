@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "pihole.fullname" . }}-http
+  labels:
+    app: {{ template "pihole.name" . }}
+    chart: {{ template "pihole.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- if .Values.serviceHTTP.annotations }}
+  annotations:
+{{ toYaml .Values.serviceHTTP.annotations | indent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.serviceHTTP.type }}
+  {{- if .Values.serviceHTTP.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.serviceHTTP.loadBalancerIP }}
+  {{- end }}
+  {{- if .Values.serviceHTTP.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ .Values.serviceHTTP.externalTrafficPolicy }}
+  {{- end }}
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: 443
+      targetPort: https
+      protocol: TCP
+      name: https
+  selector:
+    app: {{ template "pihole.name" . }}
+    release: {{ .Release.Name }}

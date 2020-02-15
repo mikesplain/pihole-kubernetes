@@ -18,6 +18,15 @@ serviceTCP:
     # metallb.universe.tf/address-pool: network-services
     # metallb.universe.tf/allow-shared-ip: pihole-svc
 
+serviceHTTP:
+  type: ClusterIP
+  externalTrafficPolicy: Local
+  loadBalancerIP: ""
+    # a fixed LoadBalancer IP
+  annotations: {}
+    # metallb.universe.tf/address-pool: network-services
+    # metallb.universe.tf/allow-shared-ip: pihole-svc
+
 serviceUDP:
   type: NodePort
   externalTrafficPolicy: Local
