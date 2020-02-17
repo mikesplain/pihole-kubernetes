@@ -16,7 +16,9 @@ spec:
   {{- if .Values.serviceUDP.loadBalancerIP }}
   loadBalancerIP: {{ .Values.serviceUDP.loadBalancerIP }}
   {{- end }}
-  externalTrafficPolicy: Local
+  {{- if .Values.serviceUDP.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ .Values.serviceUDP.externalTrafficPolicy }}
+  {{- end }}
   ports:
     - port: 53
       targetPort: dns-udp
