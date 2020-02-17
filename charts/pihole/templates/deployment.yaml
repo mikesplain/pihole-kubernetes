@@ -27,8 +27,8 @@ spec:
       dnsPolicy: "None"
       dnsConfig:
         nameservers:
-        - 127.0.0.1
-        - 8.8.8.8
+        - 1.1.1.1
+        - 1.0.0.1
       containers:
         {{- if .Values.doh.enabled }}
         - name: cloudflared
