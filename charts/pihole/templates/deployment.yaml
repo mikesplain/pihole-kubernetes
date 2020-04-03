@@ -29,8 +29,8 @@ spec:
         nameservers:
         - 1.1.1.1
         - 1.0.0.1
-      initContainers:
-      {{- toYaml .Values.extraInitContainers | nindent 6 }}
+      # initContainers:
+      # {{- toYaml .Values.extraInitContainers | nindent 6 }}
       containers:
         {{- if .Values.doh.enabled }}
         - name: cloudflared
