@@ -140,6 +140,7 @@ spec:
           {{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
+{{ toYaml .Values.sidecarContainers | indent 8 }}   
     {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}
