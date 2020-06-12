@@ -8,6 +8,12 @@ image:
   repository: "pihole/pihole"
   tag: 4.3.2-1
   pullPolicy: IfNotPresent
+  
+dnsPolicy: none
+dnsConfig:
+  nameservers:
+  - 1.1.1.1
+  - 1.0.0.1
 
 serviceTCP:
   type: NodePort
