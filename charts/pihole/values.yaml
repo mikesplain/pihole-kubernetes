@@ -163,3 +163,4 @@ regex: {}
   # - (^|\.)facebook\.com$
 
 extraInitContainers: []
+sidecarContainers: []
