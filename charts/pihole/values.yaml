@@ -8,7 +8,7 @@ image:
   repository: "pihole/pihole"
   tag: 4.3.2-1
   pullPolicy: IfNotPresent
-  
+
 dnsPolicy: none
 dnsConfig:
   nameservers:
