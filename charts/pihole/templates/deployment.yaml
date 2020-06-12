@@ -24,11 +24,12 @@ spec:
         app: {{ template "pihole.name" . }}
         release: {{ .Release.Name }}
     spec:
-      dnsPolicy: "None"
+      dnsPolicy: {{ .Values.dnsPolicy }}
       dnsConfig:
         nameservers:
-        - 1.1.1.1
-        - 1.0.0.1
+        {{- with .Values.dnsConfig.nameservers }}
+{{ toYaml . | indent 8 }}
+        {{- end }}
       containers:
         {{- if .Values.doh.enabled }}
         - name: cloudflared
