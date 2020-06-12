@@ -31,7 +31,7 @@ spec:
 {{ toYaml . | indent 8 }}
         {{- end }}
       initContainers:
-      {{- toYaml .Values.extraInitContainers | nindent 6 }}
+{{- toYaml .Values.extraInitContainers | nindent 6 }}
       containers:
         {{- if .Values.doh.enabled }}
         - name: cloudflared
