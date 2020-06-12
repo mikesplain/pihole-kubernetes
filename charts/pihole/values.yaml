@@ -162,5 +162,5 @@ regex: {}
   # Add regular expression blacklist items
   # - (^|\.)facebook\.com$
 
-extraInitContainers: []
-sidecarContainers: []
+extraInitContainers: {}
+sidecarContainers: {}
