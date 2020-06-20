@@ -21,6 +21,7 @@ serviceTCP:
   loadBalancerIP: ""
     # a fixed LoadBalancer IP
   annotations: {}
+  sessionAffinity: ClientIP
     # metallb.universe.tf/address-pool: network-services
     # metallb.universe.tf/allow-shared-ip: pihole-svc
 
@@ -39,6 +40,7 @@ serviceUDP:
   loadBalancerIP: ""
     # a fixed LoadBalancer IP
   annotations: {}
+  sessionAffinity: ClientIP
     # metallb.universe.tf/address-pool: network-services
     # metallb.universe.tf/allow-shared-ip: pihole-svc
 

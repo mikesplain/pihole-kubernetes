@@ -19,6 +19,7 @@ spec:
   {{- if .Values.serviceTCP.externalTrafficPolicy }}
   externalTrafficPolicy: {{ .Values.serviceTCP.externalTrafficPolicy }}
   {{- end }}
+  sessionAffinity: {{ .Values.serviceTCP.sessionAffinityb}}
   ports:
     - port: 53
       targetPort: dns
